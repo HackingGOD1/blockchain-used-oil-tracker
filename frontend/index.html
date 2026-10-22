@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Used Oil Tracker | Blockchain DApp</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">CSE4444 · BLOCKCHAIN TECHNOLOGY</p>
+      <h1>♻ Used Oil Tracker</h1>
+      <p class="subtitle">Transparent, verifiable used cooking oil collection records</p>
+      <button id="connectBtn" class="button button-light">Connect MetaMask</button>
+      <p id="walletStatus" class="status">Wallet not connected</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="section-heading">
+        <div><p class="eyebrow">NEW ENTRY</p><h2>Add a collection</h2></div>
+        <span class="pill">Owner only</span>
+      </div>
+      <form id="collectionForm">
+        <label for="restaurant">Restaurant name</label>
+        <input id="restaurant" type="text" maxlength="100" placeholder="e.g. Test Restaurant" required>
+        <label for="quantity">Quantity collected (litres)</label>
+        <input id="quantity" type="number" min="1" step="1" placeholder="e.g. 20" required>
+        <button type="submit" class="button">Save on blockchain</button>
+      </form>
+      <p id="message" class="message" role="status">Connect MetaMask to begin.</p>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <div><p class="eyebrow">ON-CHAIN DATA</p><h2>Collection history</h2></div>
+        <button id="refreshBtn" class="button button-outline" type="button">Refresh records</button>
+      </div>
+      <p id="count" class="record-count">Total records: —</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Restaurant</th><th>Litres</th><th>Timestamp</th><th>Collector</th></tr></thead>
+          <tbody id="records"><tr><td colspan="5" class="empty">Connect your wallet and load records.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="note">
+      <strong>Prototype note:</strong> Records are only as reliable as the information entered by the authorized account. This DApp does not independently verify physical oil collection.
+    </section>
+  </main>
+
+  <footer>Used Oil Tracker · Blockchain Technology Assignment 2</footer>
+</body>
+</html>
